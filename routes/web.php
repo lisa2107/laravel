@@ -17,10 +17,10 @@ use App\Http\Controllers\StudentController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('student', [StudentController::class, 'index']);
+Route::get('student', [StudentController::class, 'get_all_student']);
 
-Route::get('student/{student}/show', [StudentController::class, 'show']);
+Route::get('student/{student}/show', [StudentController::class, 'get_student_by_id']);
+
 Route::get('student/{student}/edit', [StudentController::class, 'edit']);
 
-Route::get('student/create',[StudentController::class,'create']);
-Route::post('student/store',[StudentController::class,'store']);
+Route::post('/student/{student}/update', [StudentController::class, 'update'])->name('update');
